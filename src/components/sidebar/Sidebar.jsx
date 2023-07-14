@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import HomeIcon from '@mui/icons-material/Home';
 import LogoutIcon from '@mui/icons-material/Logout';
 import ExploreIcon from '@mui/icons-material/Explore';
@@ -7,14 +7,20 @@ import RssFeedIcon from '@mui/icons-material/RssFeed';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import "./Sidebar.css"
 import MenuLink from '../menuLink/MenuLink';
+import { DarkModeContext } from '../../context/darkModeContext';
+
 const Sidebar = () => {
+   const {dispatch} = useContext(DarkModeContext)
   return (
     <div className='sidebar'>
         <div className="sidebarWrapper">
             <MenuLink Icon = {<RssFeedIcon />} text = "Feed"/>
             <MenuLink Icon = {<ExploreIcon />} text = "Explore"/>
             <MenuLink Icon = {<BookmarkIcon />} text = "Bookmark"/>
+            <span onClick={() => dispatch({type : "TOGGLE"})}>
             <MenuLink Icon = {<DarkModeIcon />} text = "Theme"/>
+
+            </span>
             <MenuLink Icon = {<LogoutIcon />} text = "Logout"/>
             <button className="sidebarBtn">Show More</button>
             <hr className="sidebarHr" />
