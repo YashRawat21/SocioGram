@@ -8,13 +8,16 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import "./Sidebar.css"
 import MenuLink from '../menuLink/MenuLink';
 import { DarkModeContext } from '../../context/darkModeContext';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
    const {dispatch} = useContext(DarkModeContext)
   return (
     <div className='sidebar'>
         <div className="sidebarWrapper">
-            <MenuLink Icon = {<RssFeedIcon />} text = "Feed"/>
+         {/* <Link to = "/"  style = {{textDecoration : "none" }}> */}
+           <MenuLink Icon = {<RssFeedIcon />} text = "Feed"/>
+         {/* </Link>  */}
             <MenuLink Icon = {<ExploreIcon />} text = "Explore"/>
             <MenuLink Icon = {<BookmarkIcon />} text = "Bookmark"/>
             <span onClick={() => dispatch({type : "TOGGLE"})}>

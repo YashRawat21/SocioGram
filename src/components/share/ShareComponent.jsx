@@ -2,10 +2,15 @@
  import VideoCameraFrontIcon from '@mui/icons-material/VideoCameraFront';
  import PhotoIcon from '@mui/icons-material/Photo';
  import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
+ import CloseIcon from '@mui/icons-material/Close';
  import "./Share.css"
  const ShareComponent = () => {
   const [file , setFile] = useState(null)
-   return (
+   
+  const removeImg = () => {
+    setFile(null);
+  } 
+  return (
      <div className='share'>
         <div className="shareWrapper">
        <div className="shareTop">
@@ -15,6 +20,7 @@
        <hr className="shareHr"/>
         {file && <div className='shareImgContainer'> 
           <img  src = {URL.createObjectURL(file)} alt = "" className='shareImg' />
+            <CloseIcon  className='shareCancelImg' onClick = {removeImg}/>
          </div>
          }
        <div className="shareBottom">
